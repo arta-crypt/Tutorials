@@ -5,18 +5,37 @@ import java.util.List;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
+/**
+ * Portfolioのテストを実行するクラス
+ * @author arta-crypt
+ */
 public class PortfolioTester {
 
+    /**
+     * テスト対象のPortfolioオブジェクトを保持します
+     */
     Portfolio portfolio;
+    /**
+     * テスト対象のPortfolioオブジェクトのStockServiceを指定します<br>
+     * {@link Portfolio#getMarketValue()}のテストのために、このフィールドに設定された
+     * StockServiceはmockupオブジェクトを使用します。
+     */
     StockService stockService;
 
+    /**
+     * Portfolioのテストを実行する
+     * @param args コマンドライン引数
+     */
     public static void main(String[] args) {
         PortfolioTester tester = new PortfolioTester();
         tester.setUp();
         System.out.println(tester.testMarketValue() ? "pass" : "fail");
     }
 
+
+    /**
+     * Portfolioのテスト用の設定を行う
+     */
     public  void setUp() {
         // Create a portfolio object which is to be tested
         portfolio = new Portfolio();
@@ -28,6 +47,11 @@ public class PortfolioTester {
         portfolio.setStockService(stockService);
     }
 
+
+    /**
+     * {@link Portfolio#getMarketValue()}のテスト
+     * @return テスト結果
+     */
     public boolean testMarketValue() {
         // Creates a list of stocks to be added to the portfolio
         List<Stock> stocks = new ArrayList<>();
