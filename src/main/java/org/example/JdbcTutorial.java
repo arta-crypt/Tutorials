@@ -7,9 +7,10 @@ import java.sql.Statement;
 
 public class JdbcTutorial {
     public static void main(String[] args) {
-        String url = "jdbc:h2:tcp://localhost/D:/Tools/h2/database/samples/db";
-        String user = "sa";
-        String password = "";
+//        String url = "jdbc:h2:tcp://localhost/D:/Tools/h2/database/samples/db";
+        String url = "jdbc:oracle:thin:@//localhost:1521/FREEPDB1";
+        String user = "system";
+        String password = "password";
 
         try (Connection connection = DriverManager.getConnection(url, user, password);
              Statement statement = connection.createStatement()) {
